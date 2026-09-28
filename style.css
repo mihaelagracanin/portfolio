@@ -104,13 +104,55 @@ a.btn-download{display:inline-flex;align-items:center;gap:8px}
 .project-card-body .muted{color:var(--muted);font-size:14px;margin-bottom:8px}
 .project-actions{display:flex;gap:10px;margin-top:10px}
 
+/* Featured funnel work */
+.funnel-showcase{margin-top:28px;padding:24px;border:1px solid #dce5e8;border-radius:14px;background:linear-gradient(140deg,#f5fbfa,#fff 65%);box-shadow:0 8px 30px rgba(2,6,23,0.04)}
+.funnel-showcase-heading{max-width:62ch;margin-bottom:18px}
+.funnel-showcase-heading h3{margin:0 0 6px;font-size:22px}
+.funnel-showcase-heading p:last-child{margin:0;color:var(--muted)}
+.funnel-showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.funnel-showcase-card{display:flex;flex-direction:column;align-items:flex-start;padding:18px;border:1px solid #e2e8ea;border-radius:10px;background:#fff}
+.funnel-showcase-label{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.funnel-showcase-card h4{margin:6px 0;font-size:18px}
+.funnel-showcase-card p{margin:4px 0 12px;color:var(--muted)}
+.funnel-showcase-card .funnel-showcase-stages{margin-top:auto;color:var(--text);font-size:14px;font-weight:600}
+.funnel-showcase-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}
+.funnel-showcase-actions a{display:inline-block;padding:9px 12px;font-size:14px}
+.funnel-showcase a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
 /* Modal */
 .modal{position:fixed;inset:0;background:rgba(2,6,23,0.5);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
 .modal[aria-hidden="false"]{display:flex}
-.modal-content{background:#fff;padding:22px;border-radius:12px;max-width:900px;width:100%;box-shadow:0 20px 60px rgba(2,6,23,0.2)}
-.modal-close{position:absolute;right:20px;top:18px;background:transparent;border:0;font-size:24px}
+.modal-content{position:relative;background:#fff;padding:22px;border-radius:12px;max-width:900px;width:100%;max-height:calc(100vh - 40px);overflow-y:auto;box-shadow:0 20px 60px rgba(2,6,23,0.2)}
+.modal-close{position:absolute;right:18px;top:14px;background:transparent;border:0;font-size:24px;cursor:pointer}
+.modal-close:focus-visible,.case-study summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .modal-grid{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:start}
 .modal-grid img{width:200px;height:auto;object-fit:contain;border-radius:8px}
+
+/* Infomedia funnel case studies */
+.infomedia-modal-content{padding:50px 28px 28px}
+.infomedia-heading{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}
+.infomedia-heading img{width:120px;height:90px;object-fit:cover;border-radius:8px}
+.infomedia-heading h3{margin:0 0 4px}
+.infomedia-heading .muted{margin:0;color:var(--muted)}
+.case-study-eyebrow{margin:0 0 4px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.case-study-note{color:var(--muted);font-size:14px}
+.case-study-list{display:grid;gap:12px;margin-top:20px}
+.case-study{border:1px solid #dce5e8;border-radius:10px;background:var(--card)}
+.case-study summary{display:list-item;padding:16px 18px;cursor:pointer}
+.case-study summary::marker{color:var(--accent)}
+.case-study summary span{display:block}
+.case-study-title{font-size:18px;font-weight:700}
+.case-study-subtitle{color:var(--muted);font-size:14px}
+.case-study-content{padding:0 18px 18px}
+.case-study-content h4{margin:18px 0 10px}
+.case-study-content p{margin:12px 0}
+.funnel-map{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:8px;margin:0;padding:0;list-style:none;counter-reset:funnel-step}
+.funnel-map li{counter-increment:funnel-step;min-height:66px;padding:10px;border-radius:8px;background:#eaf6f5;font-size:14px;font-weight:600}
+.funnel-map li::before{content:counter(funnel-step,decimal-leading-zero);display:block;margin-bottom:4px;color:var(--accent);font-size:11px;font-weight:800}
+.funnel-branch{display:block;color:var(--accent);font-size:12px;text-transform:uppercase}
+.case-study-content blockquote{margin:16px 0;padding:12px 16px;border-left:3px solid var(--accent);background:#f1f9f8;font-weight:600}
+.case-study-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;margin-top:16px}
+.case-study-actions a{display:inline-block}
 
 /* Lightbox */
 #image-lightbox{display:flex;align-items:center;justify-content:center}
@@ -129,4 +171,13 @@ a.btn-download{display:inline-flex;align-items:center;gap:8px}
   .project-card{flex-direction:column}
   .project-thumb{width:100%;height:200px}
   .modal-grid{grid-template-columns:1fr}
+  .funnel-showcase-grid{grid-template-columns:1fr}
+}
+@media (max-width:540px){
+  .modal{padding:10px}
+  .modal-content{max-height:calc(100vh - 20px);padding:46px 16px 18px}
+  .infomedia-heading{grid-template-columns:1fr;gap:10px}
+  .infomedia-heading img{width:100%;height:130px}
+  .case-study summary,.case-study-content{padding-left:14px;padding-right:14px}
+  .funnel-map{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
