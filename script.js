@@ -1,22 +1,35 @@
 // Minimal modal logic for featured project
+const modalTriggers = new Map();
+
 function openModal(id){
   const el = document.getElementById(id);
   if(!el) return;
   el.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
+  const closeButton = el.querySelector('.modal-close');
+  if(closeButton) closeButton.focus();
 }
 function closeModal(id){
   const el = document.getElementById(id);
   if(!el) return;
   el.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
+  const trigger = modalTriggers.get(id);
+  if(trigger) trigger.focus();
+  modalTriggers.delete(id);
 }
 
 document.addEventListener('click', function(e){
   const open = e.target.closest('[data-open-project]');
   if(open){
     const id = open.getAttribute('data-open-project');
+    modalTriggers.set(id, open);
     openModal(id);
+    const caseStudyId = open.getAttribute('data-open-case-study');
+    if(caseStudyId){
+      const caseStudy = document.getElementById(caseStudyId);
+      if(caseStudy && caseStudy.tagName === 'DETAILS') caseStudy.open = true;
+    }
     e.preventDefault();
   }
   const close = e.target.closest('.modal-close');
@@ -30,6 +43,24 @@ document.addEventListener('click', function(e){
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape'){
     document.querySelectorAll('.modal[aria-hidden="false"]').forEach(m=>closeModal(m.id));
+    return;
+  }
+
+  if(e.key === 'Tab'){
+    const modal = document.querySelector('.modal[aria-hidden="false"]');
+    if(!modal) return;
+    const focusable = Array.from(modal.querySelectorAll('a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])'))
+      .filter(el=>el.getClientRects().length);
+    if(!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(e.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))){
+      last.focus();
+      e.preventDefault();
+    } else if(!e.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))){
+      first.focus();
+      e.preventDefault();
+    }
   }
 });
 
