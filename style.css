@@ -603,6 +603,7 @@ footer{color:var(--muted)}
 .footer-bottom a{color:#a9e7c2;font-size:13px;font-weight:650;text-decoration:none}
 .footer-bottom a:hover{text-decoration:underline;text-underline-offset:4px}
 .site-footer a:focus-visible{outline:3px solid #75d49c;outline-offset:4px;border-radius:4px}
+.back-to-top{transition:color .2s ease,background-color .2s ease,box-shadow .2s ease,transform .2s ease}
 
 /* Experience snapshot */
 .stats-heading{margin-bottom:22px}
@@ -651,7 +652,35 @@ footer{color:var(--muted)}
   #stats .stat-card{min-height:104px;padding:16px}
   #stats .stat-card:hover{transform:translateY(-3px) scale(1.01)}
 }
+@media (max-width:680px){
+  .footer-bottom{padding-bottom:76px}
+  .back-to-top{
+    position:fixed;
+    z-index:20;
+    right:max(16px,env(safe-area-inset-right));
+    bottom:max(16px,env(safe-area-inset-bottom));
+    display:inline-flex;
+    min-width:54px;
+    min-height:54px;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:0 17px;
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+    background:linear-gradient(135deg,#7548c8,#59359c);
+    box-shadow:0 8px 26px rgba(0,0,0,.42),0 0 20px rgba(117,72,200,.28);
+    color:#fff;
+    font-size:14px;
+    font-weight:750;
+    text-decoration:none;
+  }
+  .back-to-top:hover{transform:translateY(-2px);background:linear-gradient(135deg,#8256d4,#6845ad);color:#fff}
+  .back-to-top span{font-size:19px;line-height:1}
+}
 @media (prefers-reduced-motion:reduce){
   #stats .stat-card{transition:none}
   #stats .stat-card:hover{transform:none}
+  .back-to-top{transition:none}
+  .back-to-top:hover{transform:none}
 }
