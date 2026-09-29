@@ -207,27 +207,30 @@ body{
   background-repeat:no-repeat;
   background-size:100% 1050px;
 }
+body > header,
+body > section,
+body > footer{
+  position:relative;
+  z-index:1;
+}
 body::before{
-  position:absolute;
-  z-index:-1;
-  top:0;
-  left:0;
-  width:min(56vw,680px);
-  height:min(100vh,900px);
+  position:fixed;
+  z-index:0;
+  inset:0 auto 0 0;
+  width:min(64vw,760px);
   background-image:url("images/purple.svg");
   background-position:left center;
   background-repeat:no-repeat;
-  background-size:auto 100%;
+  background-size:auto min(100vh,960px);
   content:"";
-  opacity:.48;
-  filter:brightness(1.8) saturate(1.25) drop-shadow(0 0 32px rgba(111,66,193,.3));
-  transform-origin:left center;
+  opacity:.82;
+  filter:brightness(2.2) saturate(1.3) drop-shadow(0 0 42px rgba(111,66,193,.36));
   pointer-events:none;
-  animation:purple-backdrop-drift 16s ease-in-out infinite alternate;
+  animation:purple-backdrop-glow 12s ease-in-out infinite alternate;
 }
-@keyframes purple-backdrop-drift{
-  from{transform:translate3d(-5px,-8px,0) scale(.99)}
-  to{transform:translate3d(8px,8px,0) scale(1.025)}
+@keyframes purple-backdrop-glow{
+  from{opacity:.66}
+  to{opacity:.9}
 }
 header{padding-top:16px}
 .navbar{
@@ -370,7 +373,7 @@ a:hover{color:#d8c7ff}
 .modal-close{color:var(--text)}
 footer{color:var(--muted)}
 @media (max-width:680px){
-  body::before{width:min(92vw,540px);height:min(88vh,760px);opacity:.34}
+  body::before{width:min(92vw,540px);opacity:.58}
   .navbar{flex-direction:column;align-items:stretch;gap:10px;padding:10px 12px}
   .navbar .navbar-links{flex-wrap:wrap;justify-content:space-between;gap:2px}
   .navbar-links a{gap:5px;padding:8px 7px;font-size:12px}
