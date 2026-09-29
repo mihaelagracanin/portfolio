@@ -320,6 +320,16 @@ header{padding-top:16px}
   font-weight:800;
   letter-spacing:.12em;
 }
+.brand-logo-slot img{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:110px;
+  max-width:none;
+  height:auto;
+  transform:translate(-50%,-50%);
+  object-fit:contain;
+}
 .brand-logo-slot::after{
   position:absolute;
   inset:4px;
@@ -556,6 +566,7 @@ footer{color:var(--muted)}
 @media (max-width:380px){
   .brand{gap:9px}
   .brand-logo-slot{width:42px;height:42px}
+  .brand-logo-slot img{width:100px}
   .brand-copy strong{font-size:13px}
   .navbar-links svg{display:none}
   .navbar-links a{gap:0;padding-right:2px;padding-left:2px;font-size:12px}
