@@ -226,18 +226,18 @@ body::before{
   z-index:0;
   inset:0;
   background-image:url("images/purple.svg");
-  background-position:left center;
+  background-position:left 100%;
   background-repeat:no-repeat;
-  background-size:auto 100%;
+  background-size:auto 160%;
   content:"";
-  opacity:.2;
+  opacity:.07;
   filter:brightness(2.2) saturate(1.3) drop-shadow(0 0 42px rgba(111,66,193,.36));
   pointer-events:none;
   animation:page-purple-drift 18s ease-in-out infinite alternate;
 }
 @keyframes page-purple-drift{
-  from{background-position:left 48%}
-  to{background-position:left 52%}
+  from{background-position:left 99%}
+  to{background-position:left 101%}
 }
 header{padding-top:16px}
 .navbar{
