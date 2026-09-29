@@ -173,6 +173,8 @@ a.btn-download{display:inline-flex;align-items:center;gap:8px}
 .modal-close:focus-visible,.case-study summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .modal-grid{display:grid;grid-template-columns:200px 1fr;gap:18px;align-items:start}
 .modal-grid img{width:200px;height:auto;object-fit:contain;border-radius:8px}
+.modal-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.modal-actions a:focus-visible{outline:3px solid #75d49c;outline-offset:3px}
 
 /* Infomedia funnel case studies */
 .infomedia-modal-content{padding:50px 28px 28px}
