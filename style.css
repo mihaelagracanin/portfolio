@@ -60,14 +60,73 @@ h1{font-size:34px;line-height:1.05;margin:0 0 12px}
 .btn-secondary:hover{background:rgba(14,165,164,0.06)}
 
 /* About */
-#about .container{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
-#about h2{margin-top:0}
-#about p{color:var(--muted);margin-bottom:12px}
+#about .about-panel{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(250px,300px);
+  gap:clamp(28px,5vw,64px);
+  align-items:start;
+  padding:clamp(26px,4vw,42px);
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid rgba(208,190,255,.14);
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(43,47,54,.94),rgba(31,35,40,.94));
+  box-shadow:0 22px 60px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.045);
+}
+#about .about-panel::before{
+  position:absolute;
+  z-index:0;
+  inset:-60px;
+  background:
+    radial-gradient(ellipse 42% 54% at 8% 8%,rgba(111,66,193,.27),transparent 74%),
+    radial-gradient(ellipse 35% 52% at 92% 92%,rgba(25,135,84,.23),transparent 76%);
+  content:"";
+  filter:blur(28px);
+  pointer-events:none;
+}
+#about .about-copy,#about .contact-card{position:relative;z-index:1}
+#about .about-copy{max-width:68ch}
+#about .about-eyebrow,.contact-eyebrow{
+  margin:0 0 8px;
+  color:#a9e7c2;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+#about .about-copy h2{margin:0;font-size:clamp(30px,4vw,42px);letter-spacing:-.04em}
+#about .about-copy h3{margin:12px 0 18px;color:#d5c5ff;font-size:17px;font-weight:650}
+#about .about-copy p:not(.about-eyebrow){color:#c2c7d0;margin:0 0 14px;line-height:1.75}
+#about .about-copy p:last-child{margin-top:22px;padding-top:17px;border-top:1px solid rgba(255,255,255,.11);font-size:14px}
 
-.contact-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.04)}
-.contact-card h4{margin:0 0 8px}
+.contact-card{
+  padding:22px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  background:linear-gradient(150deg,rgba(48,52,59,.78),rgba(32,36,41,.78));
+  box-shadow:0 14px 36px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.06);
+  backdrop-filter:blur(16px);
+}
+.contact-card h3{margin:0 0 18px;font-size:22px;letter-spacing:-.025em}
 .contact-card a{color:var(--accent);text-decoration:none;font-weight:600}
-.contact-list{margin:10px 0 0;color:var(--muted);line-height:1.4}
+.contact-list{display:grid;gap:14px;margin:0;color:var(--muted);line-height:1.45}
+.contact-list>div{display:grid;gap:3px;min-width:0}
+.contact-list>div>span{color:#8d959f;font-size:10px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.contact-list>div>a,.contact-list>div>p{margin:0;color:#eef0f3;font-size:13px;overflow-wrap:anywhere}
+.contact-list>div>a:hover{color:#a9e7c2}
+.contact-card a:focus-visible{outline:2px solid #75d49c;outline-offset:3px;border-radius:3px}
+.about-cv-link{display:flex;width:100%;min-height:46px;justify-content:center;gap:10px;margin-top:20px}
+@media (max-width:880px){
+  #about .about-panel{grid-template-columns:1fr;gap:26px}
+  #about .about-copy{max-width:none}
+  #about .contact-card{max-width:none}
+}
+@media (max-width:540px){
+  #about .about-panel{padding:24px 20px;border-radius:18px}
+  #about .about-copy h3{margin-bottom:14px}
+  .contact-card{padding:19px}
+}
 
 /* Cards and grid tweaks */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
