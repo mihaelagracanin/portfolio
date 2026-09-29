@@ -393,7 +393,7 @@ footer{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important}
-  body::before{animation:none;opacity:.78}
+  body::before{display:none;animation:none}
 }
 
 .site-footer{
