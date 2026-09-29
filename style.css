@@ -181,3 +181,7 @@ a.btn-download{display:inline-flex;align-items:center;gap:8px}
   .case-study summary{padding-left:14px;padding-right:14px}
   .case-study-content{padding-left:14px;padding-right:14px}
 }
+@media (prefers-reduced-motion:reduce){
+  .funnel-showcase-card{transition:none}
+  .funnel-showcase-card:hover{transform:none}
+}
