@@ -200,10 +200,10 @@ body{
   color:var(--text);
   background-color:var(--bg);
   background-image:
-    radial-gradient(ellipse 42rem 34rem at 100% 0%,rgba(111,66,193,.34),transparent 72%),
-    radial-gradient(ellipse 34rem 25rem at 84% 0%,rgba(25,135,84,.18),transparent 74%);
+    radial-gradient(ellipse 70rem 54rem at 100% 0%,rgba(111,66,193,.52),transparent 72%),
+    radial-gradient(ellipse 58rem 44rem at 78% 4%,rgba(25,135,84,.32),transparent 74%);
   background-repeat:no-repeat;
-  background-size:100% 760px;
+  background-size:100% 1050px;
 }
 header{padding-top:16px}
 .navbar{gap:24px}
