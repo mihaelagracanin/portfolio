@@ -210,11 +210,10 @@ a.btn-download{display:inline-flex;align-items:center;gap:8px}
 .contact-card-large h4{margin:0 0 8px}
 .contact-card-large p{color:var(--muted);margin:6px 0}
 .contact-methods{display:flex;gap:12px;margin-top:16px}
-.contact-diagnostic h2{max-width:24ch;margin:0 0 16px;font-size:clamp(25px,3vw,32px);line-height:1.2;letter-spacing:-.03em}
-.contact-diagnostic ol{display:grid;gap:10px;margin:0 0 16px;padding-left:28px;color:#d5d9df}
-.contact-diagnostic li{padding-left:4px;line-height:1.55}
-.contact-diagnostic li::marker{color:#75d49c;font-weight:800}
-.contact-diagnostic>p{max-width:62ch;margin:0;color:var(--muted);line-height:1.7}
+.contact-diagnostic h2{max-width:24ch;margin:0 0 14px;font-size:clamp(25px,3vw,32px);line-height:1.2;letter-spacing:-.03em}
+.contact-diagnostic-copy{display:grid;gap:8px;margin-bottom:14px}
+.contact-diagnostic-copy p,.contact-diagnostic>p{max-width:62ch;margin:0;color:#d5d9df;line-height:1.65}
+.contact-diagnostic .contact-diagnostic-emphasis{margin-bottom:8px;color:#a9e7c2}
 @media (max-width:880px){ .contact-grid{grid-template-columns:1fr} }
 
 @media (max-width:880px){
