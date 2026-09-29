@@ -230,7 +230,7 @@ main > section{
   z-index:0;
   inset:0;
   background-image:url("images/purple.svg");
-  background-position:left center;
+  background-position:left 48%;
   background-repeat:no-repeat;
   background-size:min(100vw,900px) auto;
   content:"";
